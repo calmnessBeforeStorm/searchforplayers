@@ -18,20 +18,19 @@ with open(jsonFile, 'w', encoding="utf-8") as file:
 leaderboard = data['leaderboard']
 
 kzPlayers = []
-q = 0
+q = 1
 print(f"Текущая дата: {str(now)}\n")
 for item in leaderboard:
      if "country" in item:
         country = item["country"]
         if country == 'kz':
             try:
-                q += 1
                 kzPlayers.append({
                 'rank': item['rank'],
                 'name': item['name'],
                 'team_tag': item['team_tag']
                 })
-                
+                q += 1
                 print(f"{q})\nРанг: {item['rank']}\nНик: {item['name']}\nКоманда: {item['team_tag']}")
             except KeyError:
                 continue
