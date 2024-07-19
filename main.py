@@ -52,19 +52,22 @@ def main():
     }
 
     while True:
-        print("Выберите регион:")
+        print("Выберите регион:\n")
         print("1 - Европа")
         print("2 - Америка")
         print("3 - Юго-Восточная Азия")
-        print("4 - Китай")
+        print("4 - Китай\n")
+        print("Введите 'q' или 'quit' для выхода из программы\n")
         choice = input("Введите номер региона: ")
 
         if choice in regions:
             region = regions[choice]
             data = fetch_leaderboard(region)
             save_data(data, region)
+        elif choice == "q" or choice == "quit":
+            print("Мы вышли из программы")
+            break
         else:
             print("Некорректный выбор, попробуйте снова.")
-
 if __name__ == "__main__":
     main()
